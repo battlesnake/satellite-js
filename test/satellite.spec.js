@@ -1,11 +1,8 @@
-define([
-    'satellite',
-    'json!test/sgp4.json'
-], function(
-    satellite,
-    sgp4data
-) {
+(function() {
     'use strict';
+
+	var satellite = require('satellite');
+	var sgp4data = require('./test/sgp4.json');
 
     describe('Satellite test suite', function() {
         it('sgp4', function() {
@@ -35,4 +32,4 @@ define([
             }
         });
     });
-});
+})();

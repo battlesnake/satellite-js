@@ -5,12 +5,7 @@
  * License: MIT
  */
 
-define([
-    '../constants'
-], function(
-    constants
-) {
-    'use strict';
+var constants = require('../constants');
 
     /**
      * @param {Object} topocentric
@@ -18,18 +13,17 @@ define([
      * @param {Number} topocentric.topE
      * @param {Number} topocentric.topZ
      */
-    return function(topocentric) {
-        var topS = topocentric.topS;
-        var topE = topocentric.topE;
-        var topZ = topocentric.topZ;
-        var rangeSat    = Math.sqrt((topS*topS) + (topE*topE) + (topZ*topZ));
-        var El      = Math.asin (topZ/rangeSat);
-        var Az      = Math.atan2 (-topE, topS) + constants.pi;
+module.exports = function(topocentric) {
+	var topS = topocentric.topS;
+	var topE = topocentric.topE;
+	var topZ = topocentric.topZ;
+	var rangeSat    = Math.sqrt((topS*topS) + (topE*topE) + (topZ*topZ));
+	var El      = Math.asin (topZ/rangeSat);
+	var Az      = Math.atan2 (-topE, topS) + constants.pi;
 
-        return {
-            azimuth : Az,
-            elevation : El,
-            rangeSat : rangeSat
-        };
-    };
-});
+	return {
+		azimuth : Az,
+		elevation : El,
+		rangeSat : rangeSat
+	};
+};

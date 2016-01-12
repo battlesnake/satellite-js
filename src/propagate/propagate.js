@@ -5,21 +5,13 @@
  * License: MIT
  */
 
-define([
-    '../constants',
-    '../gstime/jday',
-    '../sgp4'
-], function(
-    constants,
-    jday,
-    sgp4
-) {
-    'use strict';
+var constants = require('../constants');
+var jday = require('../gstime/jday');
+var sgp4 = require('../sgp4');
 
-    return function propagate(satrec, year, month, day, hour, minute, second){
-        //Return a position and velocity vector for a given date and time.
-        var j = jday(year, month, day, hour, minute, second);
-        var m = (j - satrec.jdsatepoch) * constants.minutesPerDay;
-        return sgp4(satrec, m);
-    };
-});
+module.exports = function propagate(satrec, year, month, day, hour, minute, second){
+	//Return a position and velocity vector for a given date and time.
+	var j = jday(year, month, day, hour, minute, second);
+	var m = (j - satrec.jdsatepoch) * constants.minutesPerDay;
+	return sgp4(satrec, m);
+};

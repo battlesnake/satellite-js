@@ -5,17 +5,10 @@
  * License: MIT
  */
 
-define([
-    './topocentric',
-    './topocentric-to-look-angles'
-], function(
-    topocentric,
-    topocentricToLookAngles
-) {
-    'use strict';
+var topocentric = require('./topocentric');
+var topocentricToLookAngles = require('./topocentric-to-look-angles');
 
-    return function (observerCoordsEcf, satelliteCoordsEcf) {
-        var topocentricCoords = topocentric(observerCoordsEcf, satelliteCoordsEcf);
-        return topocentricToLookAngles(topocentricCoords);
-    };
-});
+module.exports = function (observerCoordsEcf, satelliteCoordsEcf) {
+	var topocentricCoords = topocentric(observerCoordsEcf, satelliteCoordsEcf);
+	return topocentricToLookAngles(topocentricCoords);
+};
