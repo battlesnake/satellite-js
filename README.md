@@ -1,5 +1,9 @@
 # satellite.js v1.2.0
 
+## What the fork?
+
+This fork was originally intended to make the module compatible with Browserify, however now that has been acheived I also intend to refactor it a bit and make it feel more OO.
+
 ## Introduction
 
 A library to make satellite propagation via TLEs possible in the web.
